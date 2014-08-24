@@ -42,7 +42,7 @@ h1{
 	height: 23px;
 	float: left;
 	margin-left: -43px; 
-	background:url('pdf.png') no-repeat;
+	background:url('../assets/images/pdf.png') no-repeat;
 }
 .list-literature ul li:first-of-type,
 .list-literature ul li:nth-of-type(3){
