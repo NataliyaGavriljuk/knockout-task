@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout-task</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Легкое использование существующих электронных документов (инструкций)</h1>
+		<section class="list-literature">
+			<p>Список литературы:</p>
+			<ul data-bind="foreach:ListLiterature">
+				<li>
+					<label>
+						<span data-bind="text:id + '.'"></span>
+						<span data-bind="text:title + '.'"></span>
+						<input type="checkbox" data-bind="checked: check, click: $parent.SelectItems">
+					</label>
+				</li>
+			</ul>
+		</section>
+		<section class="send-letter">
+			<p>Отправка письма:</p>
+			<form action="">
+				<p>E-mail:</p>
+				<input type="email" data-bind="value:email">
+				<p>Тема:</p>
+				<input type="text" data-bind="value:topic">
+				<p>Текст сообщения:</p>
+				<textarea data-bind="value:textMsg"></textarea>
+				<p>Прикрепленные файлы:</p>
+				<ul data-bind="foreach:ListSelectLiterature">
+					<li>
+						<label>
+							<span data-bind="text:id + '.'"></span>
+							<span data-bind="text:title"></span>
+						</label>
+					</li>
+				</ul>
+				<button data-bind="click:showBlock">Отправить</button>
+				<p class="warning" data-bind="text:warning"></p>
+			</form>
+		</section>
+		<section class="received-info" data-bind="visible: isVisible">
+			<p>Полученные данные </p>
+			<dl>
+				<dt>E-mail:</dt>
+				<dd data-bind="text:email"></dd>
+				<dt>Тема:</dt>
+				<dd data-bind="text:topic"></dd>
+				<dt>Текст сообщения:</dt>
+				<dd data-bind="text:textMsg"></dd>
+				<dt>Прикрепленные файлы:</dt>
+				<dd>
+					<ul data-bind="foreach:ListSelectLiterature">
+						<li>
+							<label>
+								<span data-bind="text:id + '.'"></span>
+								<span data-bind="text:title"></span>
+							</label>
+						</li>
+					</ul>
+				</dd>
+			</dl>	
+		</section>
+	</div>
+	<script src="scripts/knockout-3.1.0.js"></script>
+	<script src="scripts/ko.js"></script>	
+</body>
+</html>
